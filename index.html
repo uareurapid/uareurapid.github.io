@@ -1,0 +1,892 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ENGINEER_CORE // Senior Software Engineer &amp; Indie Hacker</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Manrope:wght@500;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="./style.css" rel="stylesheet" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-dim": "#060e20",
+              "secondary-fixed-dim": "#dbb4ff",
+              "inverse-primary": "#005bc4",
+              "error-dim": "#d7383b",
+              "on-secondary-fixed-variant": "#7511c3",
+              "tertiary-dim": "#58e7ab",
+              "on-surface-variant": "#a3aac4",
+              secondary: "#c180ff",
+              "surface-container-lowest": "#000000",
+              primary: "#85adff",
+              background: "#060e20",
+              "surface-container": "#0f1930",
+              "surface-tint": "#85adff",
+              "secondary-container": "#6f00be",
+              "primary-fixed-dim": "#5391ff",
+              surface: "#060e20",
+              "outline-variant": "#40485d",
+              "surface-variant": "#192540",
+              "primary-dim": "#699cff",
+              error: "#ff716c",
+              "on-primary": "#002c66",
+              "on-primary-container": "#002150",
+              outline: "#6d758c",
+              "on-background": "#dee5ff",
+              "inverse-on-surface": "#4d556b",
+              "on-tertiary-container": "#005a3c",
+              "on-primary-fixed-variant": "#002a62",
+              "surface-container-high": "#141f38",
+              "on-secondary-fixed": "#4f0089",
+              "surface-bright": "#1f2b49",
+              "surface-container-highest": "#192540",
+              "on-tertiary-fixed-variant": "#006544",
+              "on-primary-fixed": "#000000",
+              "tertiary-fixed": "#69f6b8",
+              "secondary-fixed": "#e5c6ff",
+              "on-error-container": "#ffa8a3",
+              "secondary-dim": "#9c48ea",
+              "on-secondary-container": "#e9cdff",
+              "on-error": "#490006",
+              "tertiary-fixed-dim": "#58e7ab",
+              "on-surface": "#dee5ff",
+              tertiary: "#9bffce",
+              "surface-container-low": "#091328",
+              "on-secondary": "#33005b",
+              "on-tertiary": "#006443",
+              "primary-fixed": "#6e9fff",
+              "primary-container": "#6e9fff",
+              "on-tertiary-fixed": "#00452d",
+              "tertiary-container": "#69f6b8",
+              "inverse-surface": "#faf8ff",
+              "error-container": "#9f0519",
+            },
+            fontFamily: {
+              headline: ["Space Grotesk"],
+              body: ["Inter"],
+              label: ["Manrope"],
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-surface text-on-surface selection:bg-primary selection:text-on-primary"
+  >
+    <!-- TopNavBar -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-[#060e20]/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(133,173,255,0.08)]"
+    >
+      <div
+        class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto"
+      >
+        <div
+          class="text-xl font-bold tracking-tighter text-[#85adff] font-['Space_Grotesk']"
+        >
+          ENGINEER_CORE
+        </div>
+        <div
+          class="hidden md:flex gap-8 items-center font-['Space_Grotesk'] tracking-tight"
+        >
+          <a
+            class="text-[#85adff] border-b-2 border-[#85adff] pb-1"
+            href="#projects"
+            >Projects</a
+          >
+          <a
+            class="text-slate-400 hover:text-white transition-colors"
+            href="#experience"
+            >CV</a
+          >
+          <a
+            class="text-slate-400 hover:text-white transition-colors"
+            href="#skills"
+            >Skills</a
+          >
+          <a
+            class="text-slate-400 hover:text-white transition-colors"
+            href="#blog"
+            >Blog</a
+          >
+        </div>
+        <button
+          class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-6 py-2 rounded-md font-label text-[10px] uppercase tracking-widest font-bold hover:scale-95 transition-transform"
+        >
+          Hire Me
+        </button>
+      </div>
+    </nav>
+    <main class="pt-24">
+      <!-- Hero Section -->
+      <section
+        class="max-w-7xl mx-auto px-8 py-20 lg:py-32 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+      >
+        <div class="lg:col-span-7 space-y-8">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/15"
+          >
+            <span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+            <span
+              class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant"
+              >Available for Innovation</span
+            >
+          </div>
+          <h1
+            class="font-headline text-5xl md:text-7xl font-bold leading-[0.9] tracking-tighter text-glow"
+          >
+            Senior Software <br />
+            <span class="text-primary">Engineer</span> &amp; Indie Hacker
+          </h1>
+          <p
+            class="text-on-surface-variant text-lg md:text-xl max-w-xl font-light leading-relaxed"
+          >
+            Architecting the future through code and creativity. Specializing in
+            high-performance distributed systems and elegant consumer-facing
+            applications.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a
+              class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-8 py-4 rounded-md font-label text-xs uppercase tracking-widest font-black flex items-center gap-2 hover:opacity-90 transition-all"
+              href="#projects"
+            >
+              View My Work
+              <span class="material-symbols-outlined text-sm"
+                >arrow_outward</span
+              >
+            </a>
+            <a
+              class="bg-surface-container-high/40 text-primary border border-outline-variant/20 px-8 py-4 rounded-md font-label text-xs uppercase tracking-widest font-black hover:bg-surface-container-high transition-all"
+              href="https://github.com/uareurapid"
+            >
+              GitHub Source
+            </a>
+          </div>
+        </div>
+        <div class="lg:col-span-5 relative">
+          <div
+            class="aspect-square rounded-full bg-gradient-to-br from-primary/20 to-secondary/10 absolute -inset-4 blur-3xl opacity-20"
+          ></div>
+          <div
+            class="relative overflow-hidden rounded-xl border border-outline-variant/10 aspect-[4/5] glass-panel p-2"
+          >
+            <img
+              class="w-full h-full object-cover rounded-lg opacity-80 grayscale hover:grayscale-0 transition-all duration-700"
+              data-alt="High-tech glowing server hardware macro"
+              src="eu.jpeg"
+            />
+            <div
+              class="absolute bottom-6 left-6 right-6 p-6 glass-panel rounded-lg border border-outline-variant/15"
+            >
+              <div class="font-label text-[10px] uppercase text-tertiary mb-2">
+                Current Stack Focus
+              </div>
+              <div class="font-headline text-lg font-bold">
+                NodeJs // TypeScript // NEXT.JS
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Projects Grid -->
+      <section class="bg-surface-container-low py-32" id="projects">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="mb-20 space-y-4">
+            <h2 class="font-headline text-4xl font-bold tracking-tighter">
+              Selected <span class="text-primary">Builds</span>
+            </h2>
+            <p class="text-on-surface-variant max-w-md">
+              A curated selection of tools and entertainment products built with
+              precision and scalability in mind.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div
+              class="group bg-surface-container rounded-xl overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 border-2 border-primary/30"
+            >
+              <div
+                class="aspect-video bg-surface-container-high relative overflow-hidden"
+              >
+                <img
+                  class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700"
+                  data-alt="Minimalist digital daily planner interface"
+                  src="planner.png"
+                />
+              </div>
+              <div class="p-8 space-y-6">
+                <div class="space-y-2">
+                  <h3 class="font-headline text-xl font-bold">Daily Planner</h3>
+                  <p class="text-on-surface-variant text-sm leading-relaxed">
+                    High-performance productivity suite focusing on flow state
+                    and cognitive load reduction.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-secondary-container/20 text-secondary text-[9px] font-label uppercase tracking-widest px-2 py-1 rounded"
+                    >React</span
+                  >
+                  <span
+                    class="bg-secondary-container/20 text-secondary text-[9px] font-label uppercase tracking-widest px-2 py-1 rounded"
+                    >TypeScript</span
+                  >
+                </div>
+                <div class="flex gap-4 pt-2">
+                  <a
+                    class="text-primary hover:text-tertiary transition-colors flex items-center gap-1 text-xs font-label font-bold uppercase tracking-widest"
+                    href="https://uareurapid.github.io/dailyplanner_website/"
+                    >Live Site
+                    <span class="material-symbols-outlined text-sm"
+                      >open_in_new</span
+                    ></a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Project 2 -->
+            <div
+              class="group bg-surface-container rounded-xl overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 border-2 border-primary/30"
+            >
+              <div
+                class="aspect-video bg-surface-container-high relative overflow-hidden"
+              >
+                <img
+                  class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700"
+                  data-alt="Atmospheric coffee shop scene digital art"
+                  src="coffee.png"
+                />
+              </div>
+              <div class="p-8 space-y-6">
+                <div class="space-y-2">
+                  <h3 class="font-headline text-xl font-bold">Coffee Break</h3>
+                  <p class="text-on-surface-variant text-sm leading-relaxed">
+                    Micro-break orchestrator for remote teams. Encourages
+                    physical health and mental clarity.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-secondary-container/20 text-secondary text-[9px] font-label uppercase tracking-widest px-2 py-1 rounded"
+                    >Flutter</span
+                  >
+                  <span
+                    class="bg-secondary-container/20 text-secondary text-[9px] font-label uppercase tracking-widest px-2 py-1 rounded"
+                    >Dart</span
+                  >
+                </div>
+                <div class="flex gap-4 pt-2">
+                  <a
+                    class="text-primary hover:text-tertiary transition-colors flex items-center gap-1 text-xs font-label font-bold uppercase tracking-widest"
+                    href="https://uareurapid.github.io/coffe_break_website/"
+                    >Live Site
+                    <span class="material-symbols-outlined text-sm"
+                      >open_in_new</span
+                    ></a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Project 3 Pantry Pal -->
+            <div
+              class="group bg-surface-container rounded-xl overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 border-2 border-primary/30"
+            >
+              <div
+                class="aspect-video bg-surface-container-high relative overflow-hidden"
+              >
+                <img
+                  class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700"
+                  data-alt="Digital kitchen inventory management concept"
+                  src="pantry.png"
+                />
+              </div>
+              <div class="p-8 space-y-6">
+                <div class="space-y-2">
+                  <h3 class="font-headline text-xl font-bold">Pantry Pal</h3>
+                  <p class="text-on-surface-variant text-sm leading-relaxed">
+                    AI-driven kitchen inventory manager. Reduces food waste via
+                    smart expiration tracking.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-secondary-container/20 text-secondary text-[9px] font-label uppercase tracking-widest px-2 py-1 rounded"
+                    >Python</span
+                  >
+                  <span
+                    class="bg-secondary-container/20 text-secondary text-[9px] font-label uppercase tracking-widest px-2 py-1 rounded"
+                    >FastAPI</span
+                  >
+                </div>
+                <div class="flex gap-4 pt-2">
+                  <a
+                    class="text-primary hover:text-tertiary transition-colors flex items-center gap-1 text-xs font-label font-bold uppercase tracking-widest"
+                    href="https://uareurapid.github.io/pantrypal_website/"
+                    >Live Site
+                    <span class="material-symbols-outlined text-sm"
+                      >open_in_new</span
+                    ></a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 4 Mood Mantras -->
+            <div
+              class="group bg-surface-container rounded-xl overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 border-2 border-primary/30"
+            >
+              <div
+                class="aspect-video bg-surface-container-high relative overflow-hidden"
+              >
+                <img
+                  class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700"
+                  data-alt="AI-driven mood tracking and mental wellness app"
+                  src="mantras.png"
+                />
+              </div>
+              <div class="p-8 space-y-6">
+                <div class="space-y-2">
+                  <h3 class="font-headline text-xl font-bold">Mood Mantras</h3>
+                  <p class="text-on-surface-variant text-sm leading-relaxed">
+                    AI-driven mood tracking and mental wellness app. Provides personalized mantras and insights.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-secondary-container/20 text-secondary text-[9px] font-label uppercase tracking-widest px-2 py-1 rounded"
+                    >Python</span
+                  >
+                  <span
+                    class="bg-secondary-container/20 text-secondary text-[9px] font-label uppercase tracking-widest px-2 py-1 rounded"
+                    >FastAPI</span
+                  >
+                </div>
+                <div class="flex gap-4 pt-2">
+                  <a
+                    class="text-primary hover:text-tertiary transition-colors flex items-center gap-1 text-xs font-label font-bold uppercase tracking-widest"
+                    href="https://uareurapid.github.io/mymantras_website/"
+                    >Live Site
+                    <span class="material-symbols-outlined text-sm"
+                      >open_in_new</span
+                    ></a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 5 Outflows -->
+            <div
+              class="group bg-surface-container rounded-xl overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 border-2 border-primary/30"
+            >
+              <div
+                class="aspect-video bg-surface-container-high relative overflow-hidden"
+              >
+                <img
+                  class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700"
+                  data-alt="Bills and subscriptions management app concept"
+                  src="outflows.png"
+                />
+              </div>
+              <div class="p-8 space-y-6">
+                <div class="space-y-2">
+                  <h3 class="font-headline text-xl font-bold">Outflows</h3>
+                  <p class="text-on-surface-variant text-sm leading-relaxed">
+                    Bills and subscriptions management app concept. Helps users track and manage their expenses efficiently.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-secondary-container/20 text-secondary text-[9px] font-label uppercase tracking-widest px-2 py-1 rounded"
+                    >Python</span
+                  >
+                  <span
+                    class="bg-secondary-container/20 text-secondary text-[9px] font-label uppercase tracking-widest px-2 py-1 rounded"
+                    >FastAPI</span
+                  >
+                </div>
+                <div class="flex gap-4 pt-2">
+                  <a
+                    class="text-primary hover:text-tertiary transition-colors flex items-center gap-1 text-xs font-label font-bold uppercase tracking-widest"
+                    href="https://uareurapid.github.io/outflows_website/"
+                    >Live Site
+                    <span class="material-symbols-outlined text-sm"
+                      >open_in_new</span
+                    ></a
+                  >
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Large Feature: Cracked Egg Games -->
+            <div
+              class="md:col-span-1 group bg-surface-container-highest rounded-xl overflow-hidden border border-outline-variant/15 hover:border-tertiary/30 transition-all duration-500 p-8 flex flex-col justify-between"
+            >
+              <div class="space-y-4">
+                <div
+                  class="font-label text-[10px] uppercase text-tertiary tracking-[0.2em]"
+                >
+                  Game Studio
+                </div>
+                <h3 class="font-headline text-3xl font-bold">
+                  Cracked Egg Games
+                </h3>
+                <p class="text-on-surface-variant max-w-sm">
+                  Exploring interactive mechanics through hyper-casual and
+                  experimental web-based games.
+                </p>
+              </div>
+              <div class="mt-12 flex justify-between items-end">
+                <div class="flex gap-2">
+                  <span
+                    class="bg-tertiary/10 text-tertiary text-[9px] font-label uppercase px-2 py-1 rounded"
+                    >Unity</span
+                  >
+                  <span
+                    class="bg-tertiary/10 text-tertiary text-[9px] font-label uppercase px-2 py-1 rounded"
+                    >C#</span
+                  >
+                </div>
+                <a
+                  class="text-on-surface font-headline font-bold flex items-center gap-2 group-hover:translate-x-2 transition-transform"
+                  href="https://crackedegggames.wixsite.com/games"
+                >
+                  Explore Studio
+                  <span class="material-symbols-outlined">arrow_right_alt</span>
+                </a>
+              </div>
+            </div>
+            <!-- Large Feature: My Mantras -->
+            <div
+              class="md:col-span-1 group bg-surface-container-high rounded-xl overflow-hidden border border-outline-variant/15 hover:border-secondary/30 transition-all duration-500 p-8 flex flex-col justify-between"
+            >
+              <div class="space-y-4">
+                <div
+                  class="font-label text-[10px] uppercase text-secondary tracking-[0.2em]"
+                >
+                  Mindfulness Tech
+                </div>
+                <h3 class="font-headline text-3xl font-bold">My Mantras</h3>
+                <p class="text-on-surface-variant max-w-sm">
+                  A personalized affirmation engine designed for daily mental
+                  conditioning and focus alignment.
+                </p>
+              </div>
+              <div class="mt-12 flex justify-between items-end">
+                <div class="flex gap-2">
+                  <span
+                    class="bg-secondary/10 text-secondary text-[9px] font-label uppercase px-2 py-1 rounded"
+                    >Swift</span
+                  >
+                  <span
+                    class="bg-secondary/10 text-secondary text-[9px] font-label uppercase px-2 py-1 rounded"
+                    >Firebase</span
+                  >
+                </div>
+                <a
+                  class="text-on-surface font-headline font-bold flex items-center gap-2 group-hover:translate-x-2 transition-transform"
+                  href="https://uareurapid.github.io/mymantras_website/"
+                >
+                  View Experience
+                  <span class="material-symbols-outlined">arrow_right_alt</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Experience Matrix -->
+      <section
+        class="py-32 max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-16"
+        id="experience"
+      >
+        <div class="lg:col-span-4 space-y-6">
+          <h2 class="font-headline text-4xl font-bold tracking-tighter">
+            Professional <span class="text-primary">Trajectory</span>
+          </h2>
+          <p class="text-on-surface-variant leading-relaxed">
+            Over a decade of engineering excellence, moving from execution to
+            high-level architectural strategy.
+          </p>
+          <div class="pt-8">
+            <div
+              class="p-6 rounded-xl bg-surface-container-high border-l-4 border-primary"
+            >
+              <div class="font-label text-[10px] uppercase text-primary mb-2">
+                Philosophy
+              </div>
+              <blockquote class="font-headline italic text-lg">
+                "Complexity is the enemy of reliability. Engineering is the art
+                of simplifying the impossible."
+              </blockquote>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-8 space-y-12">
+          <div class="relative pl-12 border-l border-outline-variant/20">
+            <!-- Item 1 -->
+            <div class="mb-16 relative">
+              <div
+                class="absolute -left-[53px] top-0 w-10 h-10 rounded-full bg-surface-container-highest border-2 border-primary flex items-center justify-center"
+              >
+                <span class="material-symbols-outlined text-primary text-xl"
+                  >architecture</span
+                >
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between items-start">
+                  <h4 class="font-headline text-2xl font-bold">
+                    Senior Software Engineer
+                  </h4>
+                  <span class="font-label text-[10px] text-on-surface-variant"
+                    >2020 — PRESENT</span
+                  >
+                </div>
+                <div class="text-primary font-bold text-sm tracking-wide">
+                  LEAD ARCHITECT / SYSTEMS DESIGN
+                </div>
+                <p class="text-on-surface-variant text-sm max-w-2xl pt-2">
+                  Driving technical strategy for distributed microservices.
+                  Orchestrating transitions from legacy monoliths to scalable,
+                  cloud-native infrastructures. Mentoring junior developers and
+                  defining CI/CD standards.
+                </p>
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="mb-16 relative">
+              <div
+                class="absolute -left-[53px] top-0 w-10 h-10 rounded-full bg-surface-container-highest border-2 border-outline-variant flex items-center justify-center"
+              >
+                <span class="material-symbols-outlined text-outline text-xl"
+                  >rocket_launch</span
+                >
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between items-start">
+                  <h4 class="font-headline text-2xl font-bold">
+                    Indie Hacker &amp; Creator
+                  </h4>
+                  <span class="font-label text-[10px] text-on-surface-variant"
+                    >2018 — PRESENT</span
+                  >
+                </div>
+                <div class="text-secondary font-bold text-sm tracking-wide">
+                  PRODUCT OWNER / FULL STACK BUILDER
+                </div>
+                <p class="text-on-surface-variant text-sm max-w-2xl pt-2">
+                  Launched 10+ niche applications reaching thousands of active
+                  users. Managed end-to-end lifecycle from market research and
+                  UX design to backend deployment and performance marketing.
+                </p>
+              </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="relative">
+              <div
+                class="absolute -left-[53px] top-0 w-10 h-10 rounded-full bg-surface-container-highest border-2 border-outline-variant flex items-center justify-center"
+              >
+                <span class="material-symbols-outlined text-outline text-xl"
+                  >code</span
+                >
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between items-start">
+                  <h4 class="font-headline text-2xl font-bold">
+                    Full Stack Developer
+                  </h4>
+                  <span class="font-label text-[10px] text-on-surface-variant"
+                    >2015 — 2020</span
+                  >
+                </div>
+                <div class="text-tertiary font-bold text-sm tracking-wide">
+                  CORE PRODUCT TEAM
+                </div>
+                <p class="text-on-surface-variant text-sm max-w-2xl pt-2">
+                  Engineered responsive user interfaces and robust API layers.
+                  Focused on performance optimization and cross-platform
+                  compatibility for enterprise-grade SaaS platforms.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Skills Matrix -->
+      <section class="bg-surface-container py-32" id="skills">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="text-center mb-20">
+            <h2 class="font-headline text-4xl font-bold tracking-tighter mb-4">
+              The <span class="text-primary">Toolbox</span>
+            </h2>
+            <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Category 1 -->
+            <div
+              class="p-8 rounded-xl bg-surface-container-lowest border border-outline-variant/10"
+            >
+              <div class="text-primary mb-6">
+                <span class="material-symbols-outlined text-3xl">terminal</span>
+              </div>
+              <h4 class="font-headline font-bold mb-4">Languages</h4>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-sm opacity-80">TypeScript</span
+                  ><span class="text-[9px] text-tertiary font-label"
+                    >EXPERT</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm opacity-80">Rust</span
+                  ><span class="text-[9px] text-tertiary font-label"
+                    >ADVANCED</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm opacity-80">Go</span
+                  ><span class="text-[9px] text-tertiary font-label"
+                    >PROFICIENT</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm opacity-80">Python</span
+                  ><span class="text-[9px] text-tertiary font-label"
+                    >EXPERT</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Category 2 -->
+            <div
+              class="p-8 rounded-xl bg-surface-container-lowest border border-outline-variant/10"
+            >
+              <div class="text-secondary mb-6">
+                <span class="material-symbols-outlined text-3xl">layers</span>
+              </div>
+              <h4 class="font-headline font-bold mb-4">Frameworks</h4>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-sm opacity-80">Next.js</span
+                  ><span class="text-[9px] text-secondary font-label"
+                    >EXPERT</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm opacity-80">Flutter</span
+                  ><span class="text-[9px] text-secondary font-label"
+                    >ADVANCED</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm opacity-80">Tailwind CSS</span
+                  ><span class="text-[9px] text-secondary font-label"
+                    >EXPERT</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm opacity-80">Node.js</span
+                  ><span class="text-[9px] text-secondary font-label"
+                    >EXPERT</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Category 3 -->
+            <div
+              class="p-8 rounded-xl bg-surface-container-lowest border border-outline-variant/10"
+            >
+              <div class="text-tertiary mb-6">
+                <span class="material-symbols-outlined text-3xl">database</span>
+              </div>
+              <h4 class="font-headline font-bold mb-4">Infrastructure</h4>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-sm opacity-80">AWS / GCP</span
+                  ><span class="text-[9px] text-tertiary font-label">CORE</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm opacity-80">Docker / K8s</span
+                  ><span class="text-[9px] text-tertiary font-label">CORE</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm opacity-80">PostgreSQL</span
+                  ><span class="text-[9px] text-tertiary font-label">CORE</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm opacity-80">Redis</span
+                  ><span class="text-[9px] text-tertiary font-label">CORE</span>
+                </div>
+              </div>
+            </div>
+            <!-- Category 4 -->
+            <div
+              class="p-8 rounded-xl bg-surface-container-lowest border border-outline-variant/10"
+            >
+              <div class="text-on-surface mb-6">
+                <span class="material-symbols-outlined text-3xl">api</span>
+              </div>
+              <h4 class="font-headline font-bold mb-4">Tools</h4>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-sm opacity-80">Git / GitHub</span
+                  ><span class="text-[9px] text-on-surface-variant font-label"
+                    >EXPERT</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm opacity-80">Figma</span
+                  ><span class="text-[9px] text-on-surface-variant font-label"
+                    >ADVANCED</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm opacity-80">Terraform</span
+                  ><span class="text-[9px] text-on-surface-variant font-label"
+                    >INTERMEDIATE</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm opacity-80">Postman</span
+                  ><span class="text-[9px] text-on-surface-variant font-label"
+                    >EXPERT</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Stats Section -->
+      <section class="py-32 bg-surface-container-lowest">
+        <div
+          class="max-w-7xl mx-auto px-8 grid grid-cols-2 lg:grid-cols-4 gap-12 text-center"
+        >
+          <div class="space-y-2">
+            <div class="font-headline text-5xl font-black text-primary">
+              10+
+            </div>
+            <div
+              class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant"
+            >
+              Apps Shipped
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="font-headline text-5xl font-black text-secondary">
+              500k+
+            </div>
+            <div
+              class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant"
+            >
+              Lines of Code
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="font-headline text-5xl font-black text-tertiary">
+              99.9%
+            </div>
+            <div
+              class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant"
+            >
+              SLA Uptime
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="font-headline text-5xl font-black text-primary">
+              2.5k+
+            </div>
+            <div
+              class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant"
+            >
+              GitHub Stars
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Final CTA -->
+      <section class="py-32 max-w-7xl mx-auto px-8">
+        <div
+          class="relative glass-panel rounded-2xl p-12 md:p-20 overflow-hidden border border-outline-variant/20"
+        >
+          <div
+            class="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"
+          ></div>
+          <div class="relative z-10 max-w-2xl space-y-8">
+            <h2
+              class="font-headline text-4xl md:text-6xl font-bold tracking-tighter leading-tight"
+            >
+              Ready to build something
+              <span class="text-tertiary">extraordinary?</span>
+            </h2>
+            <p class="text-on-surface-variant text-lg">
+              Currently accepting high-impact projects and senior roles in
+              innovative engineering teams.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-4">
+              <button
+                class="bg-primary text-on-primary px-10 py-5 rounded-md font-label text-[10px] uppercase tracking-[0.2em] font-black hover:bg-primary-fixed transition-colors"
+              >
+                Start a Conversation
+              </button>
+              <a
+                class="border border-outline-variant/40 px-10 py-5 rounded-md font-label text-[10px] uppercase tracking-[0.2em] font-black hover:bg-surface-container-high transition-colors"
+                href="https://linkedin.com"
+                >LinkedIn Profile</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="w-full py-12 px-8 mt-20 border-t border-[#40485d]/15 bg-[#000000]"
+    >
+      <div
+        class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto font-['Manrope'] uppercase tracking-widest text-[10px]"
+      >
+        <div class="text-[#85adff] font-black">
+          ENGINEER_CORE // BUILT WITH PRECISION
+        </div>
+        <div class="flex gap-8 text-slate-500">
+          <a
+            class="hover:text-[#9bffce] transition-colors"
+            href="https://github.com/uareurapid"
+            >GitHub</a
+          >
+          <a
+            class="hover:text-[#9bffce] transition-colors"
+            href="https://linkedin.com"
+            >LinkedIn</a
+          >
+          <a class="hover:text-[#9bffce] transition-colors" href="#">Source</a>
+        </div>
+        <div class="text-slate-500 opacity-80">© 2024 ENGINEER_CORE</div>
+      </div>
+    </footer>
+  </body>
+</html>

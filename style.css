@@ -1,0 +1,20 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.font-headline {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-label {
+    font-family: 'Manrope', sans-serif;
+}
+
+.glass-panel {
+    backdrop-filter: blur(12px);
+    background: rgba(25, 37, 64, 0.6);
+}
+
+.text-glow {
+    text-shadow: 0 0 20px rgba(133, 173, 255, 0.3);
+}

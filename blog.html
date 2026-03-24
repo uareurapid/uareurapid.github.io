@@ -1,0 +1,384 @@
+<!doctype html>
+<!--
+  🖊️ HOW TO ADD A NEW BLOG POST:
+  
+  1. Copy the TEMPLATE BLOCK below (search for "START BLOG POST TEMPLATE")
+  2. Paste it at the TOP of the blog posts container (right after <!-- START POSTS -->)
+  3. Fill in:
+     - data-date: YYYY-MM-DD format (for sorting/filtering)
+     - title
+     - subtitle
+     - image URL (or leave placeholder)
+     - content paragraphs and headings
+  4. Save and refresh!
+  
+  The latest post (by data-date) will automatically appear on index.html
+-->
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Blog // ENGINEER_CORE</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Manrope:wght@500;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="./style.css" rel="stylesheet" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-dim": "#060e20",
+              "secondary-fixed-dim": "#dbb4ff",
+              "inverse-primary": "#005bc4",
+              "error-dim": "#d7383b",
+              "on-secondary-fixed-variant": "#7511c3",
+              "tertiary-dim": "#58e7ab",
+              "on-surface-variant": "#a3aac4",
+              secondary: "#c180ff",
+              "surface-container-lowest": "#000000",
+              primary: "#85adff",
+              background: "#060e20",
+              "surface-container": "#0f1930",
+              "surface-tint": "#85adff",
+              "secondary-container": "#6f00be",
+              "primary-fixed-dim": "#5391ff",
+              surface: "#060e20",
+              "outline-variant": "#40485d",
+              "surface-variant": "#192540",
+              "primary-dim": "#699cff",
+              error: "#ff716c",
+              "on-primary": "#002c66",
+              "on-primary-container": "#002150",
+              outline: "#6d758c",
+              "on-background": "#dee5ff",
+              "inverse-on-surface": "#4d556b",
+              "on-tertiary-container": "#005a3c",
+              "on-primary-fixed-variant": "#002a62",
+              "surface-container-high": "#141f38",
+              "on-secondary-fixed": "#4f0089",
+              "surface-bright": "#1f2b49",
+              "surface-container-highest": "#192540",
+              "on-tertiary-fixed-variant": "#006544",
+              "on-primary-fixed": "#000000",
+              "tertiary-fixed": "#69f6b8",
+              "secondary-fixed": "#e5c6ff",
+              "on-error-container": "#ffa8a3",
+              "secondary-dim": "#9c48ea",
+              "on-secondary-container": "#e9cdff",
+              "on-error": "#490006",
+              "tertiary-fixed-dim": "#58e7ab",
+              "on-surface": "#dee5ff",
+              tertiary: "#9bffce",
+              "surface-container-low": "#091328",
+              "on-secondary": "#33005b",
+              "on-tertiary": "#006443",
+              "primary-fixed": "#6e9fff",
+              "primary-container": "#6e9fff",
+              "on-tertiary-fixed": "#00452d",
+              "tertiary-container": "#69f6b8",
+              "inverse-surface": "#faf8ff",
+              "error-container": "#9f0519",
+            },
+            fontFamily: {
+              headline: ["Space Grotesk"],
+              body: ["Inter"],
+              label: ["Manrope"],
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-surface text-on-surface selection:bg-primary selection:text-on-primary">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 bg-[#060e20]/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(133,173,255,0.08)]">
+      <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+        <a href="index.html" class="text-xl font-bold tracking-tighter text-[#85adff] font-['Space_Grotesk']">
+          ENGINEER_CORE
+        </a>
+        <div class="hidden md:flex gap-8 items-center font-['Space_Grotesk'] tracking-tight">
+          <a class="text-slate-400 hover:text-white transition-colors" href="index.html#projects">Projects</a>
+          <a class="text-slate-400 hover:text-white transition-colors" href="index.html#experience">CV</a>
+          <a class="text-slate-400 hover:text-white transition-colors" href="index.html#skills">Skills</a>
+          <a class="text-[#85adff] border-b-2 border-[#85adff] pb-1" href="blog.html">Blog</a>
+        </div>
+        <a href="index.html" class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-6 py-2 rounded-md font-label text-[10px] uppercase tracking-widest font-bold hover:scale-95 transition-transform">
+          Back Home
+        </a>
+      </div>
+    </nav>
+
+    <main class="pt-24">
+      <!-- Hero Section -->
+      <section class="max-w-7xl mx-auto px-8 py-20">
+        <div class="mb-12">
+          <h1 class="font-headline text-5xl md:text-7xl font-bold leading-[0.9] tracking-tighter text-glow mb-4">
+            Engineering <span class="text-primary">Thoughts</span>
+          </h1>
+          <p class="text-on-surface-variant text-lg max-w-2xl">
+            Stories, learnings, and insights from building software that matters.
+          </p>
+        </div>
+      </section>
+
+      <!-- Blog Posts Container -->
+      <section class="max-w-5xl mx-auto px-8 pb-32">
+        <div class="space-y-16" id="posts-container">
+          <!-- START POSTS -->
+
+          <!-- ====== START BLOG POST TEMPLATE ====== 
+          
+          Copy this entire block to add a new post!
+          
+          <article class="blog-post group" data-date="YYYY-MM-DD">
+            <div class="bg-surface-container rounded-xl overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500">
+              
+              <div class="aspect-[21/9] bg-surface-container-high relative overflow-hidden">
+                <img 
+                  src="placeholder-image.jpg" 
+                  alt="Post cover" 
+                  class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              
+              <div class="p-8 md:p-12 space-y-6">
+                <div class="space-y-3">
+                  <div class="flex items-center gap-4 text-xs text-on-surface-variant font-label uppercase tracking-widest">
+                    <span class="text-tertiary">●</span>
+                    <time>MONTH DAY, YEAR</time>
+                  </div>
+                  
+                  <h2 class="font-headline text-3xl md:text-4xl font-bold tracking-tight group-hover:text-primary transition-colors">
+                    Your Post Title Here
+                  </h2>
+                  
+                  <p class="text-on-surface-variant text-lg font-light leading-relaxed">
+                    A compelling subtitle or excerpt that draws readers in.
+                  </p>
+                </div>
+                
+                <div class="prose prose-invert max-w-none pt-6 space-y-4">
+                  
+                  <h3 class="font-headline text-xl font-bold text-primary mt-8 mb-4">
+                    First Heading
+                  </h3>
+                  
+                  <p class="text-on-surface-variant leading-relaxed">
+                    Your first paragraph. Keep it readable and well-spaced.
+                  </p>
+                  
+                  <p class="text-on-surface-variant leading-relaxed">
+                    Another paragraph with your thoughts, code examples, or insights.
+                  </p>
+                  
+                  <h3 class="font-headline text-xl font-bold text-secondary mt-8 mb-4">
+                    Second Heading
+                  </h3>
+                  
+                  <p class="text-on-surface-variant leading-relaxed">
+                    More content here. You can add as many paragraphs and headings as you need.
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          ====== END BLOG POST TEMPLATE ====== -->
+
+
+          <!-- EXAMPLE POST 1 -->
+          <article class="blog-post group" data-date="2026-03-24">
+            <div class="bg-surface-container rounded-xl overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500">
+              
+              <div class="aspect-[21/9] bg-surface-container-high relative overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=400&fit=crop" 
+                  alt="Code on screen" 
+                  class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              
+              <div class="p-8 md:p-12 space-y-6">
+                <div class="space-y-3">
+                  <div class="flex items-center gap-4 text-xs text-on-surface-variant font-label uppercase tracking-widest">
+                    <span class="text-tertiary">●</span>
+                    <time>March 24, 2026</time>
+                  </div>
+                  
+                  <h2 class="font-headline text-3xl md:text-4xl font-bold tracking-tight group-hover:text-primary transition-colors">
+                    Building for Scale: Lessons from Web3
+                  </h2>
+                  
+                  <p class="text-on-surface-variant text-lg font-light leading-relaxed">
+                    What I learned architecting distributed systems that serve millions of users across multiple blockchains.
+                  </p>
+                </div>
+                
+                <div class="prose prose-invert max-w-none pt-6 space-y-4">
+                  
+                  <h3 class="font-headline text-xl font-bold text-primary mt-8 mb-4">
+                    The Challenge
+                  </h3>
+                  
+                  <p class="text-on-surface-variant leading-relaxed">
+                    When you're building infrastructure that needs to work across Ethereum, Polygon, and Solana simultaneously, 
+                    you quickly learn that "move fast and break things" isn't a viable strategy. Every decision compounds.
+                  </p>
+                  
+                  <p class="text-on-surface-variant leading-relaxed">
+                    The real challenge isn't just handling the load—it's maintaining consistency across chains with different 
+                    block times, gas models, and finality guarantees. Traditional database transactions don't cut it anymore.
+                  </p>
+                  
+                  <h3 class="font-headline text-xl font-bold text-secondary mt-8 mb-4">
+                    What Actually Works
+                  </h3>
+                  
+                  <p class="text-on-surface-variant leading-relaxed">
+                    Event sourcing. Not the buzzword version—the real, unglamorous work of treating blockchain events as 
+                    the source of truth and building everything else as projections. It's more code upfront, but it saves 
+                    you when things go sideways (and they will).
+                  </p>
+                  
+                  <p class="text-on-surface-variant leading-relaxed">
+                    We ended up with a three-tier caching strategy: Redis for hot data, PostgreSQL for reliable reads, 
+                    and direct RPC calls only when absolutely necessary. The trick is knowing which tier to hit first.
+                  </p>
+                  
+                  <h3 class="font-headline text-xl font-bold text-tertiary mt-8 mb-4">
+                    The Human Part
+                  </h3>
+                  
+                  <p class="text-on-surface-variant leading-relaxed">
+                    Technical architecture is only half the battle. The other half is building systems that your team 
+                    can debug at 3am when production is on fire. That means logging that actually helps, error messages 
+                    that point to the problem, and documentation that people will actually read.
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- EXAMPLE POST 2 -->
+          <article class="blog-post group" data-date="2026-03-15">
+            <div class="bg-surface-container rounded-xl overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500">
+              
+              <div class="aspect-[21/9] bg-surface-container-high relative overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=400&fit=crop" 
+                  alt="Developer workspace" 
+                  class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              
+              <div class="p-8 md:p-12 space-y-6">
+                <div class="space-y-3">
+                  <div class="flex items-center gap-4 text-xs text-on-surface-variant font-label uppercase tracking-widest">
+                    <span class="text-tertiary">●</span>
+                    <time>March 15, 2026</time>
+                  </div>
+                  
+                  <h2 class="font-headline text-3xl md:text-4xl font-bold tracking-tight group-hover:text-primary transition-colors">
+                    Why I Still Write Backend Code
+                  </h2>
+                  
+                  <p class="text-on-surface-variant text-lg font-light leading-relaxed">
+                    In a world of no-code platforms and AI code generators, here's why I believe craftsmanship still matters.
+                  </p>
+                </div>
+                
+                <div class="prose prose-invert max-w-none pt-6 space-y-4">
+                  
+                  <h3 class="font-headline text-xl font-bold text-primary mt-8 mb-4">
+                    The Abstraction Trap
+                  </h3>
+                  
+                  <p class="text-on-surface-variant leading-relaxed">
+                    Tools that promise to abstract away complexity often just move it somewhere else. You trade understanding 
+                    your database queries for understanding someone else's ORM magic. You trade HTTP debugging for middleware 
+                    configuration archaeology.
+                  </p>
+                  
+                  <h3 class="font-headline text-xl font-bold text-secondary mt-8 mb-4">
+                    Speed vs. Velocity
+                  </h3>
+                  
+                  <p class="text-on-surface-variant leading-relaxed">
+                    Moving fast is easy. Moving fast in the right direction is hard. Every abstraction layer you add makes 
+                    it easier to build the wrong thing quickly. Sometimes the best productivity hack is understanding what 
+                    you're actually building.
+                  </p>
+                  
+                  <p class="text-on-surface-variant leading-relaxed">
+                    I've seen too many projects sprint for months only to realize they built on sand. The foundation matters. 
+                    The details matter. The craft matters.
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- END POSTS -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-12 px-8 mt-20 border-t border-[#40485d]/15 bg-[#000000]">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto font-['Manrope'] uppercase tracking-widest text-[10px]">
+        <div class="text-[#85adff] font-black">
+          ENGINEER_CORE // BUILT WITH PRECISION
+        </div>
+        <div class="flex gap-8 text-slate-500">
+          <a class="hover:text-[#9bffce] transition-colors" href="https://github.com/uareurapid">GitHub</a>
+          <a class="hover:text-[#9bffce] transition-colors" href="https://linkedin.com">LinkedIn</a>
+          <a class="hover:text-[#9bffce] transition-colors" href="index.html">Home</a>
+        </div>
+        <div class="text-slate-500 opacity-80">© 2024 ENGINEER_CORE</div>
+      </div>
+    </footer>
+
+    <!-- Script to export latest post data -->
+    <script>
+      // Get all posts and sort by date
+      const posts = Array.from(document.querySelectorAll('.blog-post'));
+      posts.sort((a, b) => {
+        const dateA = new Date(a.getAttribute('data-date'));
+        const dateB = new Date(b.getAttribute('data-date'));
+        return dateB - dateA;
+      });
+
+      // Export latest post data for index.html
+      if (posts.length > 0) {
+        const latest = posts[0];
+        const title = latest.querySelector('h2').textContent;
+        const subtitle = latest.querySelector('.text-lg').textContent;
+        const date = latest.querySelector('time').textContent;
+        const image = latest.querySelector('img').src;
+        
+        // Store in sessionStorage for index.html to use
+        const latestPost = { title, subtitle, date, image };
+        localStorage.setItem('latestBlogPost', JSON.stringify(latestPost));
+      }
+    </script>
+  </body>
+</html>

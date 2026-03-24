@@ -499,8 +499,50 @@
                 </a>
               </div>
             </div>
-            <!-- Large Feature: My Novels -->
+            <!-- Large Feature: Latest Blog Post -->
             <div id="blog" 
+              class="md:col-span-1 group bg-surface-container-high rounded-xl overflow-hidden border border-outline-variant/15 hover:border-primary/30 transition-all duration-500 flex flex-col"
+            >
+              <div class="aspect-[16/9] bg-surface-container-highest relative overflow-hidden">
+                <img 
+                  id="latest-blog-image"
+                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop" 
+                  alt="Latest blog post" 
+                  class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div class="p-8 flex flex-col flex-grow justify-between">
+                <div class="space-y-4">
+                  <div class="flex items-center gap-3">
+                    <div class="font-label text-[10px] uppercase text-primary tracking-[0.2em]">
+                      Latest Post
+                    </div>
+                    <span class="text-tertiary">●</span>
+                    <time id="latest-blog-date" class="font-label text-[10px] uppercase text-on-surface-variant tracking-[0.2em]">
+                      March 24, 2026
+                    </time>
+                  </div>
+                  <h3 id="latest-blog-title" class="font-headline text-2xl font-bold">
+                    Building for Scale: Lessons from Web3
+                  </h3>
+                  <p id="latest-blog-subtitle" class="text-on-surface-variant text-sm max-w-sm">
+                    What I learned architecting distributed systems that serve millions of users across multiple blockchains.
+                  </p>
+                </div>
+                <div class="mt-8">
+                  <a
+                    class="text-on-surface font-headline font-bold flex items-center gap-2 group-hover:translate-x-2 transition-transform"
+                    href="blog.html"
+                  >
+                    Read Full Article
+                    <span class="material-symbols-outlined">arrow_right_alt</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Large Feature: My Novels -->
+            <div 
               class="md:col-span-1 group bg-surface-container-high rounded-xl overflow-hidden border border-outline-variant/15 hover:border-secondary/30 transition-all duration-500 p-8 flex flex-col justify-between"
             >
               <div class="space-y-4">
@@ -990,5 +1032,18 @@
         <div class="text-slate-500 opacity-80">© 2024 ENGINEER_CORE</div>
       </div>
     </footer>
+
+    <!-- Load latest blog post -->
+    <script>
+      // Load latest blog post data
+      const latestPostData = localStorage.getItem('latestBlogPost');
+      if (latestPostData) {
+        const post = JSON.parse(latestPostData);
+        document.getElementById('latest-blog-title').textContent = post.title;
+        document.getElementById('latest-blog-subtitle').textContent = post.subtitle;
+        document.getElementById('latest-blog-date').textContent = post.date;
+        document.getElementById('latest-blog-image').src = post.image;
+      }
+    </script>
   </body>
 </html>

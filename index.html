@@ -565,7 +565,7 @@
               <div class="aspect-[16/9] bg-surface-container-highest relative overflow-hidden">
                 <img 
                   id="latest-blog-image"
-                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop" 
+                  src="./images/690e4442-b0dd-4022-be00-e4a1ed5d3895_1024x876.webp" 
                   alt="Latest blog post" 
                   class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
                 />
@@ -578,7 +578,7 @@
                     </div>
                     <span class="text-tertiary">●</span>
                     <time id="latest-blog-date" class="font-label text-[10px] uppercase text-on-surface-variant tracking-[0.2em]">
-                      March 31, 2026
+                      April 8, 2026
                     </time>
                   </div>
                   <h3 id="latest-blog-title" class="font-headline text-2xl font-bold">
@@ -597,13 +597,13 @@
                     <span class="material-symbols-outlined">arrow_right_alt</span>
                   </a>
                 </div>
-                <div class="previous_posts mt-4 text-xs text-on-surface-variant">
+                <div id="previous-post" class="previous_posts mt-4 text-xs text-on-surface-variant">
                   Previous Post: 
-                  <a href="blog.html#20260327" class="text-primary hover:text-tertiary transition-colors">7 Good Habits for Remote Workers -></a>
+                  <a href="blog.html#20260331" class="text-primary hover:text-tertiary transition-colors">7 Bad Habits for Remote Workers -></a>
                 </div>
-                <div class="previous_posts mt-4 text-xs text-on-surface-variant">
+                <div id="older-post" class="previous_posts mt-4 text-xs text-on-surface-variant">
                   Older Post: 
-                  <a href="blog.html#20260324" class="text-primary hover:text-tertiary transition-colors">Building for Scale: Lessons from Web3 -></a>
+                  <a href="blog.html#20260327" class="text-primary hover:text-tertiary transition-colors">7 Good Habits for Remote Workers -></a>
                 </div>
               </div>
             </div>
@@ -631,7 +631,7 @@
                   <a href="https://drive.google.com/file/d/1NgwWk16wpNFDkrMdFqPn9P1HRFB7_S7E/view?usp=share_link" class="flex items-center gap-1 text-secondary hover:text-tertiary transition-colors text-xs font-label font-bold uppercase tracking-widest">
                     <span class="material-symbols-outlined text-base">picture_as_pdf</span>
                     The 7 colonies (EN)
-                  </a>
+                  </a><br />
                   <a href="https://drive.google.com/file/d/1cQrJA_7HfP8d-Mx8dyLOCyrtjF6Qrlp2/view?usp=share_link" class="flex items-center gap-1 text-secondary hover:text-tertiary transition-colors text-xs font-label font-bold uppercase tracking-widest">
                     <span class="material-symbols-outlined text-base">picture_as_pdf</span>
                     As 7 colónias (PT)
@@ -1140,17 +1140,87 @@
       </div>
     </footer>
 
-    <!-- Load latest blog post -->
+    <!-- Load latest and recent blog posts -->
     <script>
-      // Load latest blog post data
-      const latestPostData = localStorage.getItem('latestBlogPost');
-      if (latestPostData) {
-        const post = JSON.parse(latestPostData);
-        document.getElementById('latest-blog-title').textContent = post.title;
-        document.getElementById('latest-blog-subtitle').textContent = post.subtitle;
-        document.getElementById('latest-blog-date').textContent = post.date;
-        document.getElementById('latest-blog-image').src = post.image;
+      function loadLatestBlogPostFromStorage() {
+        const latestPostData = localStorage.getItem("latestBlogPost");
+        if (!latestPostData) {
+          return;
+        }
+
+        try {
+          const post = JSON.parse(latestPostData);
+          document.getElementById("latest-blog-title").textContent = post.title;
+          document.getElementById("latest-blog-subtitle").textContent =
+            post.subtitle;
+          document.getElementById("latest-blog-date").textContent = post.date;
+          document.getElementById("latest-blog-image").src = post.image;
+        } catch (error) {
+          console.warn("Could not parse latestBlogPost from localStorage", error);
+        }
       }
+
+      function updatePostLink(containerId, label, post) {
+        const container = document.getElementById(containerId);
+        if (!container || !post) {
+          return;
+        }
+
+        container.innerHTML =
+          label +
+          " " +
+          '<a href="blog.html#' +
+          post.id +
+          '" class="text-primary hover:text-tertiary transition-colors">' +
+          post.title +
+          " -></a>";
+      }
+
+      async function loadPreviousAndOlderPosts() {
+        try {
+          const response = await fetch("blog.html");
+          if (!response.ok) {
+            throw new Error("Failed to fetch blog.html");
+          }
+
+          const html = await response.text();
+          const parser = new DOMParser();
+          const blogDoc = parser.parseFromString(html, "text/html");
+
+          const parsedPosts = Array.from(
+            blogDoc.querySelectorAll("article.blog-post[data-date]")
+          )
+            .map((article, index) => {
+              const dateValue = article.getAttribute("data-date") || "";
+              const date = new Date(dateValue);
+              const titleElement = article.querySelector("h2");
+              const title = titleElement
+                ? titleElement.textContent.trim()
+                : "Untitled Post";
+
+              return {
+                id: article.id || dateValue.replace(/-/g, "") || `post-${index}`,
+                title,
+                date,
+                isValidDate: !Number.isNaN(date.getTime()),
+              };
+            })
+            .filter((post) => post.isValidDate)
+            .sort((a, b) => b.date.getTime() - a.date.getTime());
+
+          // The first post is the latest. We need the 2 posts before it.
+          const previousPost = parsedPosts[1];
+          const olderPost = parsedPosts[2];
+
+          updatePostLink("previous-post", "Previous Post:", previousPost);
+          updatePostLink("older-post", "Older Post:", olderPost);
+        } catch (error) {
+          console.warn("Could not auto-load previous/older blog posts", error);
+        }
+      }
+
+      loadLatestBlogPostFromStorage();
+      loadPreviousAndOlderPosts();
     </script>
   </body>
 </html>

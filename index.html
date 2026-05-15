@@ -676,6 +676,44 @@
                 </a>-->
               </div>
             </div>
+
+            <!-- ASO Analytics -->
+            <div id="aso-analytics"
+              class="md:col-span-1 group bg-surface-container-high rounded-xl overflow-hidden border border-outline-variant/15 hover:border-primary/30 transition-all duration-500 p-8 flex flex-col justify-between"
+            >
+              <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+                    <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings:'FILL' 1">bar_chart</span>
+                  </div>
+                  <div class="font-label text-[10px] uppercase text-primary tracking-[0.2em]">
+                    SaaS Tool
+                  </div>
+                </div>
+                <h3 class="font-headline text-3xl font-bold">ASO Analytics</h3>
+                <p class="text-on-surface-variant max-w-sm">
+                  A self-hosted App Store Optimization dashboard. Tracks keyword rankings, impressions, downloads and revenue across all your iOS apps via App Store Connect API.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-1">
+                  <span class="bg-primary/10 text-primary text-[9px] font-label uppercase px-2 py-1 rounded">Python</span>
+                  <span class="bg-primary/10 text-primary text-[9px] font-label uppercase px-2 py-1 rounded">Flask</span>
+                  <span class="bg-primary/10 text-primary text-[9px] font-label uppercase px-2 py-1 rounded">App Store Connect</span>
+                  <span class="bg-primary/10 text-primary text-[9px] font-label uppercase px-2 py-1 rounded">Keyword Tracking</span>
+                </div>
+              </div>
+              <div class="mt-12 flex justify-between items-end">
+                <div></div>
+                <a
+                  class="text-on-surface font-headline font-bold flex items-center gap-2 group-hover:translate-x-2 transition-transform"
+                  href="https://cristomade.it"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Project
+                  <span class="material-symbols-outlined">arrow_right_alt</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1217,16 +1255,38 @@
               const title = titleElement
                 ? titleElement.textContent.trim()
                 : "Untitled Post";
+              const subtitleElement = article.querySelector(".text-lg");
+              const subtitle = subtitleElement
+                ? subtitleElement.textContent.trim()
+                : "";
+              const imgElement = article.querySelector("img");
+              const image = imgElement ? imgElement.getAttribute("src") : "";
+              const timeElement = article.querySelector("time");
+              const dateText = timeElement ? timeElement.textContent.trim() : "";
 
               return {
                 id: article.id || dateValue.replace(/-/g, "") || `post-${index}`,
                 title,
+                subtitle,
                 date,
+                dateText,
+                image,
                 isValidDate: !Number.isNaN(date.getTime()),
               };
             })
             .filter((post) => post.isValidDate)
             .sort((a, b) => b.date.getTime() - a.date.getTime());
+
+          // Always update the main latest post card from the live fetch
+          const latestPost = parsedPosts[0];
+          if (latestPost) {
+            document.getElementById("latest-blog-title").textContent = latestPost.title;
+            document.getElementById("latest-blog-subtitle").textContent = latestPost.subtitle;
+            document.getElementById("latest-blog-date").textContent = latestPost.dateText;
+            if (latestPost.image) {
+              document.getElementById("latest-blog-image").src = latestPost.image;
+            }
+          }
 
           // The first post is the latest. We need the 2 posts before it.
           const previousPost = parsedPosts[1];

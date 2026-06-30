@@ -647,7 +647,13 @@
             <div id="blog" 
               class="md:col-span-1 group bg-surface-container-high rounded-xl overflow-hidden border border-outline-variant/15 hover:border-primary/30 transition-all duration-500 flex flex-col"
             >
-              <div class="aspect-[16/9] bg-surface-container-highest relative overflow-hidden">
+              <div class="p-8 pb-0 space-y-3">
+                <div class="font-label text-[10px] uppercase text-primary tracking-[0.2em]">
+                  Latest Indie Thoughts
+                </div>
+                <h3 class="font-headline text-3xl font-bold">From the Blog</h3>
+              </div>
+              <div class="aspect-[16/9] bg-surface-container-highest relative overflow-hidden mt-4">
                 <img 
                   id="latest-blog-image"
                   src="./images/e446b4ab-1194-47ac-a213-0077be4be695_512x512.webp" 
@@ -771,6 +777,47 @@
                 <a
                   class="text-on-surface font-headline font-bold flex items-center gap-2 group-hover:translate-x-2 transition-transform"
                   href="https://cristomade.it"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Project
+                  <span class="material-symbols-outlined">arrow_right_alt</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- QuotaWatch -->
+            <div id="quotawatch"
+              class="md:col-span-1 group bg-surface-container-high rounded-xl overflow-hidden border border-outline-variant/15 hover:border-tertiary/30 transition-all duration-500 p-8 flex flex-col justify-between"
+            >
+              <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-tertiary/10 border border-tertiary/20 flex items-center justify-center flex-shrink-0">
+                    <span class="material-symbols-outlined text-tertiary text-2xl" style="font-variation-settings:'FILL' 1">monitor_heart</span>
+                  </div>
+                  <div class="font-label text-[10px] uppercase text-tertiary tracking-[0.2em]">
+                    SaaS Tool
+                  </div>
+                </div>
+                <h3 class="font-headline text-3xl font-bold">QuotaWatch</h3>
+                <p class="text-on-surface-variant max-w-sm">
+                  Real-time API rate-limit monitoring. Drop in two lines of SDK code
+                  (Node.js / Python) and get a live dashboard showing quota usage across
+                  all your third-party APIs — OpenAI, Stripe, Twilio, SendGrid and more.
+                  Threshold alerts at 80% and 95% fire before a 429 reaches your users.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-1">
+                  <span class="bg-tertiary/10 text-tertiary text-[9px] font-label uppercase px-2 py-1 rounded">Node.js</span>
+                  <span class="bg-tertiary/10 text-tertiary text-[9px] font-label uppercase px-2 py-1 rounded">Python SDK</span>
+                  <span class="bg-tertiary/10 text-tertiary text-[9px] font-label uppercase px-2 py-1 rounded">Next.js</span>
+                  <span class="bg-tertiary/10 text-tertiary text-[9px] font-label uppercase px-2 py-1 rounded">PostgreSQL</span>
+                </div>
+              </div>
+              <div class="mt-12 flex justify-between items-end">
+                <span class="text-[9px] bg-tertiary/10 text-tertiary font-label uppercase px-2 py-1 rounded">Live</span>
+                <a
+                  class="text-on-surface font-headline font-bold flex items-center gap-2 group-hover:translate-x-2 transition-transform"
+                  href="https://quotawatch.app"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
